@@ -1,0 +1,21 @@
+version: '2' # Note: this is an old version! But we get the "depends_on" feature which is important for starting Zookeeper successfully before launching Kafka
+
+# A minimal Kafka and Zookeeper Docker configuration based on https://github.com/confluentinc/cp-all-in-one/blob/6.0.1-post/cp-all-in-one-community/docker-compose.yml
+services:
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:6.0.1
+    environment:
+      ZOOKEEPER_CLIENT_PORT: "2181"
+
+  kafka:
+    image: confluentinc/cp-kafka:6.0.1
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
+      KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://localhost:9092"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: "1"
+      CONFLUENT_SUPPORT_METRICS_ENABLED: "0"
