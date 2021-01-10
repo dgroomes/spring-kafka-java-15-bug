@@ -66,3 +66,5 @@ I don't know what's happening. I'm further confused because I can't find that Ja
 The output of `./gradlew dependencies`, regardless if I execute it using Java 11 or Java 15, does not include Jackson. Is
 this a bug with the Kafka client library itself, where under Java 11 it doesn't bother loading Jackson but in Java 12+ it
 tries to load a Jackson class for some reason? As if it's more eager in Java 12+?
+
+UPDATE: this is due to a bug in kafka-clients, that was fixed in 2.6.1. See <https://issues.apache.org/jira/browse/KAFKA-10384>.
