@@ -58,3 +58,11 @@ Alternatively follow these instructions to re-produce the Java 12-related bug (i
           at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522) ~[na:na]
           ... 13 common frames omitted
   ```
+
+
+### Analysis
+
+I don't know what's happening. I'm further confused because I can't find that Jackson is even a dependency of the project.
+The output of `./gradlew dependencies`, regardless if I execute it using Java 11 or Java 15, does not include Jackson. Is
+this a bug with the Kafka client library itself, where under Java 11 it doesn't bother loading Jackson but in Java 12+ it
+tries to load a Jackson class for some reason? As if it's more eager in Java 12+?
