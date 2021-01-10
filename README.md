@@ -1,6 +1,9 @@
 # spring-kafka-bug
 
-A "hello world" demo of Spring for Apache Kafka that illustrates an issue (which I don't understand yet) due to Java 15 (classloading?).
+A "hello world" demo of Spring for Apache Kafka that illustrates an issue (which I don't understand yet) due to Java 12+ (classloading?).
+
+NOTE: I named this repo `spring-kafka-java-15-bug` but I've narrowed down the bug to the difference between Java 11 to
+Java 12.
 
 ## Bug
 
@@ -26,7 +29,7 @@ Follow these instructions to build and run locally:
 * Stop the containers:
   `docker-compose down`
 
-Alternatively follow these instructions to re-produce the Java 15-related bug:
+Alternatively follow these instructions to re-produce the Java 12-related bug (it happens in Java 12 and beyond; why is this happening?):
 
 * Use Java **15**
 * Start Zookeeper and Kafka in Docker containers:
