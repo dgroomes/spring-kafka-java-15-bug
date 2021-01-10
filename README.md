@@ -2,9 +2,16 @@
 
 A "hello world" demo of Spring for Apache Kafka that illustrates an issue (which I don't understand yet) due to Java 15 (classloading?).
 
+## Bug
+
+Look at the [results of the GitHub Actions CI](https://github.com/dgroomes/spring-kafka-java-15-bug/actions) to see how 
+building and running the app using Java 15 results in a `java.lang.ClassNotFoundException: com.fasterxml.jackson.databind.JsonNode`
+but the Java 11 execution starts up fine (although errors because I didn't set up Kafka in the CI environment but that's
+beyond the scope of reproducing the defect.)
+
 ## Instructions
 
-Follow these instructions:
+Follow these instructions to build and run locally:
 * Use Java 11
 * Start Zookeeper and Kafka in Docker containers:
   `docker-compose up -dV` 
