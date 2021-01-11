@@ -1,4 +1,4 @@
-# spring-kafka-bug
+# ARCHIVED: DEFECT SOLVED spring-kafka-bug
 
 A "hello world" demo of Spring for Apache Kafka that illustrates an issue (which I don't understand yet) due to Java 12+ (classloading?).
 

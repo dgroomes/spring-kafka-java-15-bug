@@ -15,4 +15,15 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.kafka:spring-kafka'
+
+    implementation('org.apache.kafka:kafka-clients') {
+        version {
+
+            /* Require a version of 'kafka-clients' to avoid the defect in 2.6.0. See https://issues.apache.org/jira/browse/KAFKA-10384
+               When the combination of Spring Boot and Spring for Apache Kafka upgrade to a version of 'kafka-clients' beyond
+               2.6.0 then this explicit version declaration can be deleted. In fact, please delete itk.
+             */
+            strictly '2.6.1'
+        }
+    }
 }
